@@ -1,0 +1,1 @@
+requests=708 failures=0 failed_pct=0.000

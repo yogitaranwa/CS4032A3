@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parser
+  namespace: app
+  labels: {app: parser}
+spec:
+  replicas: 2
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0   # an old Pod is only removed once a new one is Ready (needed for <=0.5% failures)
+      maxSurge: 1
+  selector:
+    matchLabels: {app: parser}
+  template:
+    metadata:
+      labels: {app: parser}
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: parser
+          image: command-parser:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - {name: http, containerPort: 8000}
+          env:
+            - {name: MODEL_URI, value: "s3://models/v1/"}
+            - {name: MODEL_VERSION, value: v1}
+            - {name: S3_ENDPOINT, value: "http://seaweedfs.data.svc.cluster.local:8333"}
+            - {name: MAX_NEW_TOKENS, value: "64"}
+            - {name: LOOP_GUARD_NGRAM, value: "6"}
+            - {name: FAULT_INJECT, value: "0"}
+            - name: POD_NAME
+              valueFrom: {fieldRef: {fieldPath: metadata.name}}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_ACCESS_KEY_ID}}
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_SECRET_ACCESS_KEY}}
+          resources:
+            requests: {cpu: 500m, memory: 512Mi}
+            limits: {cpu: "1", memory: 1Gi}
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "10"]   # keep serving while the endpoint is removed from Service and Traefik
+          livenessProbe:
+            httpGet: {path: /healthz, port: http}
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            failureThreshold: 6
+          readinessProbe:
+            httpGet: {path: /readyz, port: http}
+            initialDelaySeconds: 2
+            periodSeconds: 3
+            failureThreshold: 3

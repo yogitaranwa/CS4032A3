@@ -1,0 +1,3 @@
+NAME                         READY   STATUS      RESTARTS   AGE
+seaweedfs-7575fccc8b-mv4gg   0/1     Pending     0          39m
+seaweedfs-7575fccc8b-phbmg   0/1     Completed   0          40m

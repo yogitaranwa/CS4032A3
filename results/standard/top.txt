@@ -1,0 +1,65 @@
+2026-10-30T10:04:49Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   2m           325Mi           
+parser-64dc847c75-tstmm   2m           329Mi           
+
+2026-10-30T10:04:59Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   2m           325Mi           
+parser-64dc847c75-tstmm   2m           329Mi           
+
+2026-10-30T10:05:10Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   135m         364Mi           
+parser-64dc847c75-tstmm   447m         373Mi           
+
+2026-10-30T10:05:20Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   961m         399Mi           
+parser-64dc847c75-tstmm   957m         387Mi           
+
+2026-10-30T10:05:30Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   961m         399Mi           
+parser-64dc847c75-tstmm   957m         387Mi           
+
+2026-10-30T10:05:40Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   962m         432Mi           
+parser-64dc847c75-tstmm   964m         392Mi           
+
+2026-10-30T10:05:51Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   943m         432Mi           
+parser-64dc847c75-tstmm   960m         392Mi           
+
+2026-10-30T10:06:01Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   943m         432Mi           
+parser-64dc847c75-tstmm   960m         392Mi           
+
+2026-10-30T10:06:11Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   943m         432Mi           
+parser-64dc847c75-tstmm   962m         392Mi           
+
+2026-10-30T10:06:21Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   963m         424Mi           
+parser-64dc847c75-tstmm   947m         392Mi           
+
+2026-10-30T10:06:32Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   967m         424Mi           
+parser-64dc847c75-tstmm   956m         378Mi           
+
+2026-10-30T10:06:42Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   967m         424Mi           
+parser-64dc847c75-tstmm   956m         378Mi           
+
+2026-10-30T10:06:52Z
+NAME                      CPU(cores)   MEMORY(bytes)   
+parser-64dc847c75-fdj8m   965m         423Mi           
+parser-64dc847c75-tstmm   955m         378Mi           
+

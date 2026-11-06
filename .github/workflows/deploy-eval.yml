@@ -1,0 +1,53 @@
+name: deploy-and-measure
+# Tasks 3, 4 and 7: container memory test, k3d deployment, the Task 4 scenarios and the standard Locust run.
+# Needs the model Release (run train first). Everything measured is written to results/ and committed.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL
+          df -h /
+      - name: Install k3d
+        run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
+      - name: Task 3, image size and 50 requests at 1 CPU / 1 GiB
+        run: scripts/memtest.sh
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Deploy, make up
+        run: make up
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: Task 4 and Task 7 scenarios
+        run: scripts/evidence.sh
+      - name: Cluster state and logs
+        if: always()
+        run: |
+          mkdir -p results/k8s
+          kubectl get all -A -o wide > results/k8s/all.txt || true
+          kubectl -n app logs -l app=parser --tail=40 > results/k8s/app-logs-tail.txt || true
+      - name: Tear down, make down
+        if: always()
+        run: make down
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: measurements
+          path: results/
+      - name: Commit results
+        if: always()
+        run: |
+          scripts/commit_results.sh "results: deployment measurements" results

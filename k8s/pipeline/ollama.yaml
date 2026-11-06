@@ -1,0 +1,43 @@
+# Teacher inside the cluster: Ollama serving phi3.5. The model is pulled on start (needs internet).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama
+  namespace: pipeline
+  labels: {app: ollama}
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 2400   # the phi3.5 pull (about 2.2 GB) can be slow
+  selector:
+    matchLabels: {app: ollama}
+  template:
+    metadata:
+      labels: {app: ollama}
+    spec:
+      containers:
+        - name: ollama
+          image: ollama/ollama:0.5.7
+          command: ["/bin/sh", "-c"]
+          args:
+            - ollama serve & pid=$!; until ollama list >/dev/null 2>&1; do sleep 1; done; for i in 1 2 3 4 5 6 7 8; do ollama pull phi3.5 && touch /tmp/ready && break; echo pull failed, retry $i; sleep 20; done; wait $pid
+          env:
+            - {name: OLLAMA_NUM_PARALLEL, value: "1"}
+            - {name: OLLAMA_KEEP_ALIVE, value: 24h}
+          ports:
+            - {containerPort: 11434}
+          readinessProbe:
+            exec: {command: ["test", "-f", "/tmp/ready"]}
+            periodSeconds: 5
+          resources:
+            requests: {cpu: "1", memory: 3Gi}
+            limits: {cpu: "2", memory: 5Gi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama
+  namespace: pipeline
+spec:
+  selector: {app: ollama}
+  ports:
+    - {port: 11434, targetPort: 11434}

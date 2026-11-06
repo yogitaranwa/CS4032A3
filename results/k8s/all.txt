@@ -1,0 +1,48 @@
+NAMESPACE     NAME                                          READY   STATUS      RESTARTS   AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+app           pod/parser-64dc847c75-929wp                   1/1     Running     0          11m   10.42.0.25   k3d-cca-server-0   <none>           <none>
+data          pod/seaweedfs-7575fccc8b-khrqg                1/1     Running     0          25m   10.42.0.11   k3d-cca-server-0   <none>           <none>
+kube-system   pod/coredns-576bfc4dc7-dmdgb                  1/1     Running     0          26m   10.42.0.3    k3d-cca-server-0   <none>           <none>
+kube-system   pod/helm-install-traefik-crd-85xnm            0/1     Completed   0          26m   10.42.0.2    k3d-cca-server-0   <none>           <none>
+kube-system   pod/helm-install-traefik-rbhgg                0/1     Completed   1          26m   10.42.0.5    k3d-cca-server-0   <none>           <none>
+kube-system   pod/local-path-provisioner-6795b5f9d8-qj45k   1/1     Running     0          26m   10.42.0.6    k3d-cca-server-0   <none>           <none>
+kube-system   pod/metrics-server-557ff575fb-6mz9w           1/1     Running     0          26m   10.42.0.4    k3d-cca-server-0   <none>           <none>
+kube-system   pod/svclb-seaweedfs-external-f0d64149-nq9bm   1/1     Running     0          25m   10.42.0.9    k3d-cca-server-0   <none>           <none>
+kube-system   pod/svclb-traefik-2edf293e-dcmg7              2/2     Running     0          25m   10.42.0.7    k3d-cca-server-0   <none>           <none>
+kube-system   pod/traefik-5fb479b77-gmcq5                   1/1     Running     0          25m   10.42.0.8    k3d-cca-server-0   <none>           <none>
+
+NAMESPACE     NAME                         TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE   SELECTOR
+app           service/parser               ClusterIP      10.43.22.31     <none>        80/TCP                       24m   app=parser
+data          service/seaweedfs            ClusterIP      10.43.37.37     <none>        8333/TCP                     25m   app=seaweedfs
+data          service/seaweedfs-external   LoadBalancer   10.43.116.163   172.18.0.2    8333:32189/TCP               25m   app=seaweedfs
+default       service/kubernetes           ClusterIP      10.43.0.1       <none>        443/TCP                      26m   <none>
+kube-system   service/kube-dns             ClusterIP      10.43.0.10      <none>        53/UDP,53/TCP,9153/TCP       26m   k8s-app=kube-dns
+kube-system   service/metrics-server       ClusterIP      10.43.238.251   <none>        443/TCP                      26m   k8s-app=metrics-server
+kube-system   service/traefik              LoadBalancer   10.43.229.13    172.18.0.2    80:32053/TCP,443:32467/TCP   25m   app.kubernetes.io/instance=traefik-kube-system,app.kubernetes.io/name=traefik
+
+NAMESPACE     NAME                                               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE   CONTAINERS             IMAGES                                                SELECTOR
+kube-system   daemonset.apps/svclb-seaweedfs-external-f0d64149   1         1         1       1            1           <none>          25m   lb-tcp-8333            rancher/klipper-lb:v0.4.9                             app=svclb-seaweedfs-external-f0d64149
+kube-system   daemonset.apps/svclb-traefik-2edf293e              1         1         1       1            1           <none>          25m   lb-tcp-80,lb-tcp-443   rancher/klipper-lb:v0.4.9,rancher/klipper-lb:v0.4.9   app=svclb-traefik-2edf293e
+
+NAMESPACE     NAME                                     READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS               IMAGES                                    SELECTOR
+app           deployment.apps/parser                   1/1     1            1           24m   parser                   command-parser:1.0.0                      app=parser
+data          deployment.apps/seaweedfs                1/1     1            1           25m   seaweedfs                chrislusf/seaweedfs:3.80                  app=seaweedfs
+kube-system   deployment.apps/coredns                  1/1     1            1           26m   coredns                  rancher/mirrored-coredns-coredns:1.10.1   k8s-app=kube-dns
+kube-system   deployment.apps/local-path-provisioner   1/1     1            1           26m   local-path-provisioner   rancher/local-path-provisioner:v0.0.28    app=local-path-provisioner
+kube-system   deployment.apps/metrics-server           1/1     1            1           26m   metrics-server           rancher/mirrored-metrics-server:v0.7.0    k8s-app=metrics-server
+kube-system   deployment.apps/traefik                  1/1     1            1           25m   traefik                  rancher/mirrored-library-traefik:2.10.7   app.kubernetes.io/instance=traefik-kube-system,app.kubernetes.io/name=traefik
+
+NAMESPACE     NAME                                                DESIRED   CURRENT   READY   AGE   CONTAINERS               IMAGES                                    SELECTOR
+app           replicaset.apps/parser-5c877fb67c                   0         0         0       15m   parser                   command-parser:1.0.0                      app=parser,pod-template-hash=5c877fb67c
+app           replicaset.apps/parser-64dc847c75                   1         1         1       24m   parser                   command-parser:1.0.0                      app=parser,pod-template-hash=64dc847c75
+data          replicaset.apps/seaweedfs-7575fccc8b                1         1         1       25m   seaweedfs                chrislusf/seaweedfs:3.80                  app=seaweedfs,pod-template-hash=7575fccc8b
+kube-system   replicaset.apps/coredns-576bfc4dc7                  1         1         1       26m   coredns                  rancher/mirrored-coredns-coredns:1.10.1   k8s-app=kube-dns,pod-template-hash=576bfc4dc7
+kube-system   replicaset.apps/local-path-provisioner-6795b5f9d8   1         1         1       26m   local-path-provisioner   rancher/local-path-provisioner:v0.0.28    app=local-path-provisioner,pod-template-hash=6795b5f9d8
+kube-system   replicaset.apps/metrics-server-557ff575fb           1         1         1       26m   metrics-server           rancher/mirrored-metrics-server:v0.7.0    k8s-app=metrics-server,pod-template-hash=557ff575fb
+kube-system   replicaset.apps/traefik-5fb479b77                   1         1         1       25m   traefik                  rancher/mirrored-library-traefik:2.10.7   app.kubernetes.io/instance=traefik-kube-system,app.kubernetes.io/name=traefik,pod-template-hash=5fb479b77
+
+NAMESPACE   NAME                                         REFERENCE           TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+app         horizontalpodautoscaler.autoscaling/parser   Deployment/parser   cpu: 0%/70%   1         2         1          24m
+
+NAMESPACE     NAME                                 STATUS     COMPLETIONS   DURATION   AGE   CONTAINERS   IMAGES                                      SELECTOR
+kube-system   job.batch/helm-install-traefik       Complete   1/1           62s        26m   helm         rancher/klipper-helm:v0.8.4-build20240523   batch.kubernetes.io/controller-uid=ea5df0e2-fc99-47c9-aad0-6084114af4b0
+kube-system   job.batch/helm-install-traefik-crd   Complete   1/1           50s        26m   helm         rancher/klipper-helm:v0.8.4-build20240523   batch.kubernetes.io/controller-uid=f20b826a-8694-48f0-9e06-1cd6a28cbc30

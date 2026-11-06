@@ -1,0 +1,33 @@
+# Single source of truth for `make train`. train.py reads only this file
+# (plus the optional SUBSET / VERSION overrides from the command line).
+model_name: EleutherAI/pythia-70m
+train_file: datasets/v1/train.jsonl
+max_records: 1500            # the first 1,500 records of the cleaned dataset, never more
+output_root: out/models      # models are written to <output_root>/<version>/
+loss_csv: training/loss.csv  # one row per epoch
+
+# The six required items
+seed: 42
+learning_rate: 1.0e-4
+batch_size: 16
+epochs: 5
+max_seq_length: 128
+library_versions:            # train.py logs the installed versions and warns on a mismatch
+  python: "3.11"
+  torch: "2.4.1"
+  transformers: "4.44.2"
+  numpy: "1.26.4"
+  pyyaml: "6.0.2"
+  safetensors: "0.4.5"
+
+# Other settings
+weight_decay: 0.0
+warmup_ratio: 0.05
+num_threads: 2
+
+# Second model (Task 4 rolling update): one more epoch. Selected with `make train VERSION=v2`.
+version: v1
+variants:
+  v2:
+    epochs: 6
+    loss_csv: training/loss_v2.csv

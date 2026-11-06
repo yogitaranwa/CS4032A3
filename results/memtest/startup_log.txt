@@ -1,0 +1,11 @@
+2026-10-30 10:00:05,021 INFO downloading s3://models/v1/config.json (743 bytes)
+2026-10-30 10:00:05,027 INFO downloading s3://models/v1/files.sha256 (589 bytes)
+2026-10-30 10:00:05,031 INFO downloading s3://models/v1/generation_config.json (111 bytes)
+2026-10-30 10:00:05,035 INFO downloading s3://models/v1/model.safetensors (281715176 bytes)
+2026-10-30 10:00:05,440 INFO downloading s3://models/v1/model.sha256 (82 bytes)
+2026-10-30 10:00:05,446 INFO downloading s3://models/v1/special_tokens_map.json (473 bytes)
+2026-10-30 10:00:05,450 INFO downloading s3://models/v1/tokenizer.json (2114042 bytes)
+2026-10-30 10:00:05,465 INFO downloading s3://models/v1/tokenizer_config.json (4845 bytes)
+2026-10-30 10:00:05,469 INFO downloading s3://models/v1/version.json (474 bytes)
+2026-10-30 10:00:05,473 INFO downloaded 9 model files from s3://models/v1/ in 0.6s
+2026-10-30 10:00:07,100 INFO model v1 loaded in 1.6s (total start-up 2.3s)

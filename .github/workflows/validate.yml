@@ -1,0 +1,36 @@
+name: validate
+# Re-score the published student models (Release "models") on validation.jsonl without retraining.
+# Runs eval/predict.py twice per model: with the loop guard (what the service serves) and with it off (for the report).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: training/requirements.txt}
+      - run: pip install -r training/requirements.txt
+      - name: Download the models from the Release
+        run: bash scripts/fetch_models.sh
+      - name: Score v1 and v2, guard on and off
+        run: |
+          mkdir -p results/validate
+          for v in v1 v2; do
+            python eval/predict.py --model out/models/$v --loop-guard-ngram 6 --out results/validate/student_${v}_predictions.jsonl
+            python tools/score.py results/validate/student_${v}_predictions.jsonl data/validation.jsonl --out results/validate/student_${v}_validation.json
+            python eval/predict.py --model out/models/$v --loop-guard-ngram 0 --out results/validate/student_${v}_noguard_predictions.jsonl
+            python tools/score.py results/validate/student_${v}_noguard_predictions.jsonl data/validation.jsonl --out results/validate/student_${v}_noguard_validation.json
+          done
+          for f in results/validate/*_validation.json; do echo "$f"; cat "$f"; echo; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validate-evidence
+          path: results/validate/

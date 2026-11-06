@@ -1,0 +1,21 @@
+{
+  "model_version": "v1",
+  "base_model": "EleutherAI/pythia-70m",
+  "records": 1500,
+  "epochs": 5,
+  "seed": 42,
+  "learning_rate": 0.0001,
+  "batch_size": 16,
+  "max_seq_length": 128,
+  "subset": null,
+  "final_train_loss": 0.018346088129782685,
+  "libraries": {
+    "python": "3.11.17",
+    "torch": "2.4.1+cpu",
+    "transformers": "4.44.2",
+    "numpy": "1.26.4",
+    "pyyaml": "6.0.2",
+    "safetensors": "0.4.5"
+  },
+  "prompt_template": "Command: {text}\nJSON:"
+}

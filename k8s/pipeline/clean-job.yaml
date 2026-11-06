@@ -1,0 +1,25 @@
+# Runs worker/clean.py inside the cluster on the shard objects in the datasets bucket.
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: clean
+  namespace: pipeline
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: clean
+          image: cca-worker:1.0.0
+          imagePullPolicy: IfNotPresent
+          command: ["python", "worker/clean.py", "--s3-endpoint", "http://seaweedfs.data.svc.cluster.local:8333",
+                    "--shards", "s3://datasets/teacher/", "--out", "s3://datasets/v1/"]
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_ACCESS_KEY_ID}}
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_SECRET_ACCESS_KEY}}
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+            limits: {cpu: 500m, memory: 256Mi}

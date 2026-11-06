@@ -1,0 +1,94 @@
+name: train
+# Task 2: train v1 and v2 on the first 1,500 records of datasets/v1/train.jsonl (created by label-teacher),
+# evaluate the base model and both students on validation.jsonl, and publish the model archives as
+# GitHub Release assets (tag "models").
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [v1, v2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: training/requirements.txt}
+      - run: pip install -r training/requirements.txt
+      - name: Check the dataset checksum
+        run: cd datasets/v1 && sha256sum -c train.sha256
+      - name: Train (make train, reads training/config.yaml)
+        run: make train VERSION=${{ matrix.version }}
+      - name: Evaluate the student on validation.jsonl
+        run: |
+          mkdir -p results
+          python eval/predict.py --model out/models/${{ matrix.version }} --out results/student_${{ matrix.version }}_predictions.jsonl
+          python tools/score.py results/student_${{ matrix.version }}_predictions.jsonl data/validation.jsonl --out results/student_${{ matrix.version }}_validation.json
+      - name: Keep the small model metadata in the repo (never the weights)
+        run: |
+          mkdir -p models/${{ matrix.version }}
+          cp out/models/${{ matrix.version }}/{model.sha256,files.sha256,version.json} models/${{ matrix.version }}/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model-${{ matrix.version }}
+          path: |
+            out/release/model-${{ matrix.version }}.tar.gz
+            out/release/model-${{ matrix.version }}.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: train-evidence-${{ matrix.version }}
+          path: |
+            training/loss*.csv
+            results/student_${{ matrix.version }}_*
+            models/${{ matrix.version }}
+      - name: Commit evidence
+        run: |
+          paths="models/${{ matrix.version }} results/student_${{ matrix.version }}_predictions.jsonl results/student_${{ matrix.version }}_validation.json"
+          if [ "${{ matrix.version }}" = v1 ]; then paths="$paths training/loss.csv"; else paths="$paths training/loss_v2.csv"; fi
+          scripts/commit_results.sh "results: train ${{ matrix.version }}" $paths
+
+  base-model:
+    # untrained pythia-70m: Task 2 step 6, and the deliberately bad model for the quality gate demo
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: training/requirements.txt}
+      - run: pip install -r training/requirements.txt
+      - run: |
+          mkdir -p results
+          python eval/predict.py --model EleutherAI/pythia-70m --out results/base_predictions.jsonl
+          python tools/score.py results/base_predictions.jsonl data/validation.jsonl --out results/base_validation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: base-evidence
+          path: results/base_*
+      - run: |
+          scripts/commit_results.sh "results: untrained pythia-70m scores" results/base_predictions.jsonl results/base_validation.json
+
+  release:
+    needs: train
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: model-*
+          path: release
+          merge-multiple: true
+      - name: Verify the checksums, then publish the Release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd release && ls -l && sha256sum -c model-v1.sha256 && sha256sum -c model-v2.sha256 && cd ..
+          gh release view models >/dev/null 2>&1 || gh release create models --title "Model artefacts" \
+            --notes "Fine-tuned EleutherAI/pythia-70m (sequence-level distillation from phi3.5). v1 and v2 archives with sha256 files."
+          gh release upload models release/* --clobber
+          gh release view models

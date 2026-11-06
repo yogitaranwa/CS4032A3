@@ -1,0 +1,119 @@
+name: ci
+# Task 6: lint -> unit tests -> model evaluation (model from the GitHub Release) -> quality gate.
+# Secret scan runs alongside. To see the gate fail, run this workflow manually with model = untrained-base.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Which model to evaluate"
+        type: choice
+        default: release-v1
+        options: [release-v1, release-v2, untrained-base]
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: requirements-dev.txt}
+      - run: pip install -r requirements-dev.txt
+      - name: ruff
+        run: ruff check .
+      - name: JSON and YAML files parse
+        run: |
+          python - <<'PY'
+          import json, pathlib, yaml
+          for p in pathlib.Path(".").rglob("*.json"):
+              if ".git" not in p.parts: json.loads(p.read_text())
+          for p in list(pathlib.Path("k8s").rglob("*.yaml")) + list(pathlib.Path("cluster").rglob("*.yaml")) + list(pathlib.Path(".github").rglob("*.yml")):
+              if "${" in p.read_text():
+                  continue  # templates rendered by scripts (envsubst)
+              list(yaml.safe_load_all(p.read_text()))
+          PY
+      - name: NACL rules against the sample packets
+        run: python tools/nacl_sim.py network/nacl.json network/packets_sample.jsonl --check
+
+  unit-tests:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: requirements-dev.txt}
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q tests
+
+  model-eval:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    outputs:
+      available: ${{ steps.model.outputs.available }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find the model (GitHub Release asset, or the untrained base model)
+        id: model
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODEL: ${{ inputs.model || 'release-v1' }}
+        run: |
+          mkdir -p release
+          if [ "$MODEL" = untrained-base ]; then
+            echo "MODEL_REF=EleutherAI/pythia-70m" >> "$GITHUB_ENV"
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            v=${MODEL#release-}
+            if gh release download models -p "model-$v.tar.gz" -p "model-$v.sha256" -D release; then
+              (cd release && sha256sum -c "model-$v.sha256")
+              tar -xzf "release/model-$v.tar.gz" -C release
+              echo "MODEL_REF=release/$v" >> "$GITHUB_ENV"
+              echo "available=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "::notice::No model Release yet (run the train workflow first). Model evaluation and the quality gate are skipped."
+              echo "available=false" >> "$GITHUB_OUTPUT"
+            fi
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.model.outputs.available == 'true'
+        with: {python-version: "3.11", cache: pip, cache-dependency-path: training/requirements.txt}
+      - if: steps.model.outputs.available == 'true'
+        run: pip install -r training/requirements.txt
+      - name: Run the model on validation.jsonl and score it
+        if: steps.model.outputs.available == 'true'
+        run: |
+          mkdir -p results-ci
+          python eval/predict.py --model "$MODEL_REF" --out results-ci/predictions.jsonl
+          python tools/score.py results-ci/predictions.jsonl data/validation.jsonl --out results-ci/score.json
+      - uses: actions/upload-artifact@v4
+        if: steps.model.outputs.available == 'true'
+        with:
+          name: eval-output
+          path: results-ci/
+
+  quality-gate:
+    needs: model-eval
+    if: needs.model-eval.outputs.available == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: eval-output
+          path: results-ci
+      - name: Gate, JSON validity must be at least 95 percent
+        run: python tools/score.py results-ci/predictions.jsonl data/validation.jsonl --min-validity 95

@@ -1,0 +1,19 @@
+NAME                       READY   STATUS      RESTARTS   AGE     IP           NODE               NOMINATED NODE   READINESS GATES
+ollama-5fbd8df5c6-64x7l    1/1     Running     0          8m4s    10.42.0.12   k3d-cca-server-0   <none>           <none>
+teacher-workers-0-hk2vx    0/1     Completed   0          7m18s   10.42.0.13   k3d-cca-server-0   <none>           <none>
+teacher-workers-1-scvgv    0/1     Completed   0          7m18s   10.42.0.14   k3d-cca-server-0   <none>           <none>
+teacher-workers-10-mdvwz   0/1     Completed   0          7m18s   10.42.0.27   k3d-cca-server-0   <none>           <none>
+teacher-workers-11-bpnjc   0/1     Completed   0          7m18s   10.42.0.24   k3d-cca-server-0   <none>           <none>
+teacher-workers-12-7zk88   0/1     Completed   0          7m18s   10.42.0.20   k3d-cca-server-0   <none>           <none>
+teacher-workers-13-zstmx   0/1     Completed   0          7m18s   10.42.0.22   k3d-cca-server-0   <none>           <none>
+teacher-workers-14-6xqgz   0/1     Completed   0          7m18s   10.42.0.17   k3d-cca-server-0   <none>           <none>
+teacher-workers-2-cjx2z    0/1     Completed   0          7m18s   10.42.0.15   k3d-cca-server-0   <none>           <none>
+teacher-workers-3-w6q8b    0/1     Completed   0          7m18s   10.42.0.18   k3d-cca-server-0   <none>           <none>
+teacher-workers-4-bfqsv    0/1     Completed   0          7m18s   10.42.0.19   k3d-cca-server-0   <none>           <none>
+teacher-workers-5-tcvqg    0/1     Completed   0          7m18s   10.42.0.21   k3d-cca-server-0   <none>           <none>
+teacher-workers-6-ch28p    0/1     Completed   0          7m18s   10.42.0.16   k3d-cca-server-0   <none>           <none>
+teacher-workers-7-qz7ml    0/1     Completed   0          7m18s   10.42.0.25   k3d-cca-server-0   <none>           <none>
+teacher-workers-8-smdzg    0/1     Completed   0          7m18s   10.42.0.26   k3d-cca-server-0   <none>           <none>
+teacher-workers-9-xxbsc    0/1     Completed   0          7m18s   10.42.0.23   k3d-cca-server-0   <none>           <none>
+NAME              STATUS     COMPLETIONS   DURATION   AGE     CONTAINERS   IMAGES             SELECTOR
+teacher-workers   Complete   15/15         7m18s      7m20s   worker       cca-worker:1.0.0   batch.kubernetes.io/controller-uid=d3c608b6-39c6-454a-875d-1c4cc3ec23ff

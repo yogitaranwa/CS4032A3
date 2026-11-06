@@ -1,0 +1,10 @@
+.git
+out/
+results/
+datasets/
+models/
+report/
+tests/
+training/
+.secrets/
+**/__pycache__
