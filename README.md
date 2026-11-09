@@ -19,7 +19,7 @@ network/         subnets.md, nacl.json, packets_sample.jsonl
 tools/           score.py, nacl_sim.py, locustfile.py (from the kit, unchanged)
 scripts/         up/down, secrets, evidence (Task 4/7 scenarios), memtest, summarize, packaging
 tests/           unit tests
-.github/workflows/  ci.yml, label.yml, train.yml, deploy-eval.yml
+.github/workflows/  ci.yml, label.yml, train.yml, deploy-eval.yml, validate.yml
 results/         evidence written by the workflows (scores, Locust output, kubectl output)
 report/          report.md skeleton and build instructions
 ```
@@ -87,5 +87,5 @@ Run these from the Actions tab, in this order (each one commits its evidence fil
 ## Known limits
 
 - The cluster is one node, so it shows Pod-level recovery but not tolerance of a machine failure.
-- On a GitHub runner the load generator, Traefik, SeaweedFS and the replicas share 2 vCPUs, so latency is higher than on a quiet laptop.
+- On a GitHub runner the load generator, Traefik, SeaweedFS and the replicas share 2 vCPUs, so latency differs from a quiet laptop (on the measured laptop the p95 was 4.4 s vs 1.5 s on the shared runner; the cause is not isolated).
 - Measured numbers appear only in `results/` and the report.

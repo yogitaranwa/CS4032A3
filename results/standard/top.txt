@@ -1,65 +1,65 @@
-2026-10-30T10:04:49Z
+2026-11-08T20:43:26Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   2m           325Mi           
-parser-64dc847c75-tstmm   2m           329Mi           
+parser-64dc847c75-66vfs   5m           318Mi           
+parser-64dc847c75-kmxq6   4m           336Mi           
 
-2026-10-30T10:04:59Z
+2026-11-08T20:43:36Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   2m           325Mi           
-parser-64dc847c75-tstmm   2m           329Mi           
+parser-64dc847c75-66vfs   4m           319Mi           
+parser-64dc847c75-kmxq6   5m           334Mi           
 
-2026-10-30T10:05:10Z
+2026-11-08T20:43:46Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   135m         364Mi           
-parser-64dc847c75-tstmm   447m         373Mi           
+parser-64dc847c75-66vfs   276m         333Mi           
+parser-64dc847c75-kmxq6   730m         354Mi           
 
-2026-10-30T10:05:20Z
+2026-11-08T20:43:56Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   961m         399Mi           
-parser-64dc847c75-tstmm   957m         387Mi           
+parser-64dc847c75-66vfs   276m         333Mi           
+parser-64dc847c75-kmxq6   730m         354Mi           
 
-2026-10-30T10:05:30Z
+2026-11-08T20:44:06Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   961m         399Mi           
-parser-64dc847c75-tstmm   957m         387Mi           
+parser-64dc847c75-66vfs   994m         348Mi           
+parser-64dc847c75-kmxq6   998m         383Mi           
 
-2026-10-30T10:05:40Z
+2026-11-08T20:44:16Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   962m         432Mi           
-parser-64dc847c75-tstmm   964m         392Mi           
+parser-64dc847c75-66vfs   999m         349Mi           
+parser-64dc847c75-kmxq6   999m         400Mi           
 
-2026-10-30T10:05:51Z
+2026-11-08T20:44:26Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   943m         432Mi           
-parser-64dc847c75-tstmm   960m         392Mi           
+parser-64dc847c75-66vfs   999m         349Mi           
+parser-64dc847c75-kmxq6   999m         400Mi           
 
-2026-10-30T10:06:01Z
+2026-11-08T20:44:36Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   943m         432Mi           
-parser-64dc847c75-tstmm   960m         392Mi           
+parser-64dc847c75-66vfs   999m         349Mi           
+parser-64dc847c75-kmxq6   999m         380Mi           
 
-2026-10-30T10:06:11Z
+2026-11-08T20:44:46Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   943m         432Mi           
-parser-64dc847c75-tstmm   962m         392Mi           
+parser-64dc847c75-66vfs   999m         350Mi           
+parser-64dc847c75-kmxq6   999m         358Mi           
 
-2026-10-30T10:06:21Z
+2026-11-08T20:44:56Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   963m         424Mi           
-parser-64dc847c75-tstmm   947m         392Mi           
+parser-64dc847c75-66vfs   999m         350Mi           
+parser-64dc847c75-kmxq6   999m         358Mi           
 
-2026-10-30T10:06:32Z
+2026-11-08T20:45:06Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   967m         424Mi           
-parser-64dc847c75-tstmm   956m         378Mi           
+parser-64dc847c75-66vfs   999m         363Mi           
+parser-64dc847c75-kmxq6   998m         362Mi           
 
-2026-10-30T10:06:42Z
+2026-11-08T20:45:16Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   967m         424Mi           
-parser-64dc847c75-tstmm   956m         378Mi           
+parser-64dc847c75-66vfs   999m         350Mi           
+parser-64dc847c75-kmxq6   998m         362Mi           
 
-2026-10-30T10:06:52Z
+2026-11-08T20:45:27Z
 NAME                      CPU(cores)   MEMORY(bytes)   
-parser-64dc847c75-fdj8m   965m         423Mi           
-parser-64dc847c75-tstmm   955m         378Mi           
+parser-64dc847c75-66vfs   999m         350Mi           
+parser-64dc847c75-kmxq6   998m         362Mi           
 

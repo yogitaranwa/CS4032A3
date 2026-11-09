@@ -1,0 +1,9 @@
+{
+  "input": 40,
+  "rejected_a_invalid_json": 0,
+  "rejected_b_keys": 0,
+  "rejected_c_intent": 0,
+  "rejected_d_slot": 0,
+  "duplicates": 0,
+  "kept": 40
+}

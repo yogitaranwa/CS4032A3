@@ -1,5 +1,6 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.4.1+cpu
+torch==2.4.1+cpu; platform_machine == 'x86_64'
+torch==2.4.1; platform_machine == 'aarch64'
 transformers==4.44.2
 tokenizers==0.19.1
 huggingface-hub==0.25.1

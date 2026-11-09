@@ -6,15 +6,13 @@ Waiting for deployment "parser" rollout to finish: 1 old replicas are pending te
 Waiting for deployment "parser" rollout to finish: 1 old replicas are pending termination...
 deployment "parser" successfully rolled out
 --- after update: version from the ingress
-X-Model-Version: v1
 X-Model-Version: v2
 X-Model-Version: v2
 X-Model-Version: v2
-X-Model-Version: v1
+X-Model-Version: v2
+X-Model-Version: v2
 X-Model-Version: v2
 deployment.apps/parser rolled back
-Waiting for deployment spec update to be observed...
-Waiting for deployment "parser" rollout to finish: 0 out of 2 new replicas have been updated...
 Waiting for deployment "parser" rollout to finish: 1 out of 2 new replicas have been updated...
 Waiting for deployment "parser" rollout to finish: 1 out of 2 new replicas have been updated...
 Waiting for deployment "parser" rollout to finish: 1 out of 2 new replicas have been updated...
@@ -22,7 +20,7 @@ Waiting for deployment "parser" rollout to finish: 1 old replicas are pending te
 Waiting for deployment "parser" rollout to finish: 1 old replicas are pending termination...
 deployment "parser" successfully rolled out
 --- after rollback: version from the ingress
-X-Model-Version: v2
+X-Model-Version: v1
 X-Model-Version: v1
 X-Model-Version: v1
 X-Model-Version: v1

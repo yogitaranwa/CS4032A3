@@ -1,6 +1,8 @@
-run1 parser-64dc847c75-bnbt5 18.0
-run1 parser-64dc847c75-rx5bk 7.0
-run2 parser-64dc847c75-wl46m 7.0
-run2 parser-64dc847c75-zjxtr 17.0
-run3 parser-64dc847c75-929wp 6.0
-run3 parser-64dc847c75-gmbjv 17.0
+run1 parser-64dc847c75-sz64m 7.0
+run1 parser-64dc847c75-wpbng 10.0
+run2 parser-64dc847c75-5bwxp 6.0
+run2 parser-64dc847c75-gh4hd 6.0
+run2 parser-64dc847c75-sz64m 7.0
+run2 parser-64dc847c75-wpbng 10.0
+run3 parser-64dc847c75-v4kqg 9.0
+run3 parser-64dc847c75-zw6gd 9.0

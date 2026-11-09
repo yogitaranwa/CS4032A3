@@ -1,1 +1,1 @@
-requests=906 failures=1 failed_pct=0.110
+requests=213 failures=0 failed_pct=0.000

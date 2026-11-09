@@ -1,4 +1,4 @@
 requests completed: 50 / 50 (HTTP 200: 50, HTTP 500 invalid_model_output: 0, other failures: 0)
 OOMKilled: false
-peak memory (docker stats, limit 1 GiB): 358.7 MiB
+peak memory (docker stats, limit 1 GiB): 723.9 MiB
 limits: --cpus 1 --memory 1g

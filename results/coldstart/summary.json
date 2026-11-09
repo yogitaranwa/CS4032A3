@@ -1,9 +1,9 @@
 {
   "per_run_seconds_slowest_pod": {
-    "run1": 18.0,
-    "run2": 17.0,
-    "run3": 17.0
+    "run1": 10.0,
+    "run2": 10.0,
+    "run3": 9.0
   },
-  "median_seconds": 17.0,
-  "median_all_pods_seconds": 12.0
+  "median_seconds": 10.0,
+  "median_all_pods_seconds": 8.0
 }

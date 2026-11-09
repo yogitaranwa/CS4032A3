@@ -1,0 +1,20 @@
+{"id": "C0001", "text": "do i have any meetings scheduled the weekend after next", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"the weekend after next\", \"time\": null, \"place\": null}"}
+{"id": "C0003", "text": "remind me of the meeting on tuesday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tuesday\", \"time\": null, \"place\": null}\n"}
+{"id": "C0005", "text": "do i have meeting with steve this week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0007", "text": "remind me of my meeting tomorrow ten in the morning", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"tomorrow\", \"time\": \"ten in the morning\", \"place\": null}\n"}
+{"id": "C0009", "text": "clear calendar events all", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0011", "text": "google do i have any appointments on my calendar for friday", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"friday\", \"time\": null, \"place\": null}\n"}
+{"id": "C0013", "text": "set alarm for tomorrow at two pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"tomorrow\", \"time\": \"two pm\", \"place\": null}\n"}
+{"id": "C0015", "text": "olly can you remind me about the gym class in two hours", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"two hours\", \"place\": null}\n"}
+{"id": "C0017", "text": "it's my mother's birthday today olly send me a notification every year on this date", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "C0019", "text": "what's the weather for the entire week", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0021", "text": "what is the temperature right now", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0023", "text": "set an alarm for me for tomorrow at seven pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"tomorrow\", \"time\": \"seven pm\", \"place\": null}\n"}
+{"id": "C0025", "text": "what is happening", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0027", "text": "add an event labeled dan's graduation party may fifth in goshen", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"may fifth\", \"time\": null, \"place\": \"goshen\"}\n"}
+{"id": "C0029", "text": "clear all events from calendar", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0031", "text": "tell me current time", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0033", "text": "what time and day is it today", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C0035", "text": "what's my calendar today", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C0037", "text": "change alarm setting", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0039", "text": "do i have any alarms", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}\n"}

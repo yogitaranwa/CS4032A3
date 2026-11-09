@@ -1,2 +1,2 @@
-image size: 1.22GB
+image size: 1.21GB
 image <= 2 GB

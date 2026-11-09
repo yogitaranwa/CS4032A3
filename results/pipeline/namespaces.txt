@@ -1,8 +1,0 @@
-NAME              STATUS   AGE
-app               Active   40m
-data              Active   40m
-default           Active   42m
-kube-node-lease   Active   42m
-kube-public       Active   42m
-kube-system       Active   42m
-pipeline          Active   40m
