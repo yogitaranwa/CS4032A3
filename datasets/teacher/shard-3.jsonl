@@ -1,0 +1,200 @@
+{"id": "C0004", "text": "is my calendar free for thursday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"thursday\", \"time\": null, \"place\": null}\n"}
+{"id": "C0019", "text": "what's the weather for the entire week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0034", "text": "what's on my calendar tomorrow", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C0049", "text": "alarm five pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"five pm\", \"place\": null}\n"}
+{"id": "C0064", "text": "make an alarm for me at five am tomorrow", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"tomorrow\", \"time\": \"five am\", \"place\": null}\n"}
+{"id": "C0079", "text": "i have to go to a meting on friday at noon can you remind me", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"friday\", \"time\": \"noon\", \"place\": null}"}
+{"id": "C0094", "text": "add to my reminders to watch new movie today at nine pm", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"today\", \"time\": \"nine pm\", \"place\": null}\n"}
+{"id": "C0109", "text": "tell me which time is it in new york", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"new york\"}"}
+{"id": "C0124", "text": "what's on my schedule this week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"this week\", \"time\": null, \"place\": null}"}
+{"id": "C0139", "text": "what is today's weather", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0154", "text": "what will the high be tomorrow in tucson", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": \"tucson\"}"}
+{"id": "C0169", "text": "show me the meetings held last week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"last week\", \"time\": null, \"place\": null}\n"}
+{"id": "C0184", "text": "is it a yes or a no that tomorrows temperature will be hot", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C0199", "text": "when is my alarm set for", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0214", "text": "how many reminders do i have pending", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0229", "text": "is today march sixth", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"march sixth\", \"time\": null, \"place\": null}"}
+{"id": "C0244", "text": "please remind me one hour before the meeting i have tomorrow morning", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow morning\", \"time\": \"one hour before\", \"place\": null}\n"}
+{"id": "C0259", "text": "i want an alarm for six am everyday", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"everyday\", \"time\": \"six am\", \"place\": null}"}
+{"id": "C0274", "text": "are there more than two doctor's appointments in my calendar", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0289", "text": "mark my calendar as unavailable today", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C0304", "text": "when's the closest concert at ford's", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"ford's\"}"}
+{"id": "C0319", "text": "is it gonna rain", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0334", "text": "check my calendar for me", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0349", "text": "will the temperature be above freezing on wednesday", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"wednesday\", \"time\": null, \"place\": null}"}
+{"id": "C0364", "text": "accumulation of snow predictions in buffalo", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"buffalo\"}"}
+{"id": "C0379", "text": "what is the date and time for today", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "C0394", "text": "current date time", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0409", "text": "what is the weather like", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0424", "text": "what should i see this weekend", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0439", "text": "what is my schedule for tomorrow morning", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow morning\", \"time\": null, \"place\": null}"}
+{"id": "C0454", "text": "what's on tomorrow night", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0469", "text": "how humid is the environment today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0484", "text": "do i have any appointments coming up", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0499", "text": "what is my schedule for twelve pm to four pm", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"twelve pm to four pm\", \"place\": null}"}
+{"id": "C0514", "text": "i need to set an alarm how many do i have set", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0529", "text": "do you think it will be okay to wear shorts this week", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0544", "text": "weather in florida this week", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"florida\"}"}
+{"id": "C0559", "text": "is it raining in barcelona", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"barcelona\"}"}
+{"id": "C0574", "text": "please mark my calendar for therapy every tuesday at eleven am", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"every tuesday at eleven am\", \"place\": null}\n"}
+{"id": "C0589", "text": "delete event calendar", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0604", "text": "find weather report", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0619", "text": "what's the weather like", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C0634", "text": "on january twenty five set meeting for twelve", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"january twenty fifth\", \"time\": null, \"place\": null}\n"}
+{"id": "C0649", "text": "clear all concert schedule", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0664", "text": "what is the weather like this week", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0679", "text": "mark next tuesday in my calendar as steve's birthday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"next tuesday\", \"time\": null, \"place\": null}\n"}
+{"id": "C0694", "text": "where is my appointment with doctor next week", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"next week\", \"time\": null, \"place\": null}\n"}
+{"id": "C0709", "text": "time wellington nz", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"wellington nz\"}\n"}
+{"id": "C0724", "text": "add to calendar october first at two pm lunch with ann", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"october first\", \"time\": \"two pm\", \"place\": null}\n"}
+{"id": "C0739", "text": "when is my daughter birthday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0754", "text": "what is the weather here", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0769", "text": "what time will my alarm go off today", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"today\", \"time\": \"the specific time the alarm is set for (not provided in command)\", \"place\": null}"}
+{"id": "C0784", "text": "erase the meeting tomorrow at ten am", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"tomorrow\", \"time\": \"ten am\", \"place\": null}\n"}
+{"id": "C0799", "text": "is it going to snow today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "C0814", "text": "show me boston's current time", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"boston\"}\n"}
+{"id": "C0829", "text": "olly clear all events in calendar", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0844", "text": "is there any possibility of rain this week", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0859", "text": "what time do i have down for susan's party", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": \"susan's party\"}"}
+{"id": "C0874", "text": "what time am i meeting my dentist on friday", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"friday\", \"time\": null, \"place\": null}"}
+{"id": "C0889", "text": "can you give me the time in new delhi", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"new delhi\"}"}
+{"id": "C0904", "text": "what is the date for the following monday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"the following monday\", \"time\": null, \"place\": null}"}
+{"id": "C0919", "text": "tell me the weather for the following month", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0934", "text": "hey olly what's today's date", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0949", "text": "remind me to meet joe for lunch tomorrow", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}\n"}
+{"id": "C0964", "text": "get a forecast about wind speed tonight", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0979", "text": "is it windy today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C0994", "text": "when is my next appointment", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1009", "text": "what time is it in chicago", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"chicago\"}"}
+{"id": "C1024", "text": "olly are there any events on my calendar for this week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"this week\", \"time\": null, \"place\": null}\n"}
+{"id": "C1039", "text": "set the event to recur every week", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1054", "text": "up coming events", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1069", "text": "tell more about this event", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1084", "text": "do i need pants", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1099", "text": "will i need a jacket", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1114", "text": "my daughter's anniversary is thursday send me a reminder", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"thursday\", \"time\": null, \"place\": null}\n"}
+{"id": "C1129", "text": "do i have any events today", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C1144", "text": "wake me up at nine am", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"nine am\", \"place\": null}\n"}
+{"id": "C1159", "text": "do i have an appointment for lunch tomorrow", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C1174", "text": "will i need an umbrella for today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C1189", "text": "wake me up at five hundred and thirty", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"five hundred and thirty am\", \"place\": null}"}
+{"id": "C1204", "text": "give me the weekly weather near me", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1219", "text": "tell me this week's weather", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1234", "text": "please give me notice when i need to leave for the conference", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1249", "text": "set reminder for my wedding anniversary on ten july", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"ten july\", \"time\": null, \"place\": null}\n"}
+{"id": "C1264", "text": "cancel the plan of party", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1279", "text": "what's the weather in toronto today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"today\", \"time\": null, \"place\": \"toronto\"}\n"}
+{"id": "C1294", "text": "what are the next three alarms set to go off", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1309", "text": "can i know whats the time now", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1324", "text": "in the calendar put that we are having dinner with frank at eight pm on the ninth of august", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"the ninth of august\", \"time\": \"eight pm\", \"place\": null}\n"}
+{"id": "C1339", "text": "when are the trains running tomorrow", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C1354", "text": "set an alarm for five hundred and thirty", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"five hundred and thirty am\", \"place\": null}\n"}
+{"id": "C1369", "text": "check the weather of city on list starts with a", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"city on list that starts with a\"}"}
+{"id": "C1384", "text": "what's the weather in chicago", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"chicago\"}"}
+{"id": "C1399", "text": "google what is the temperature outside", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1414", "text": "remove all scheduled tw meetings from the calendar please", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1429", "text": "delete my latest event", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1444", "text": "make an alarm for three pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"three pm\", \"place\": null}\n"}
+{"id": "C1459", "text": "remind me about my meeting", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1474", "text": "alert me about birthday of wife in advance", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1489", "text": "are there team meetups on the schedule this month", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1504", "text": "please restart and remove all the entries in the calendar", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1519", "text": "did you set the alarm for five am", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"five am\", \"place\": null}"}
+{"id": "C1534", "text": "does monday's meeting at eight am include chuck ingerman", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"monday\", \"time\": \"eight am\", \"place\": null}"}
+{"id": "C1549", "text": "tell me what time it is right now", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1564", "text": "cancel my five pm daily call", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": \"five pm\", \"place\": null}\n"}
+{"id": "C1579", "text": "tell me the time in japan", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"japan\"}"}
+{"id": "C1594", "text": "list all of my upcoming alarms", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1609", "text": "hey olly what time is it in orlando florida", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"orlando florida\"}"}
+{"id": "C1624", "text": "is the meeting with julie at three pm on wednesday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"wednesday\", \"time\": \"three pm\", \"place\": null}\n"}
+{"id": "C1639", "text": "can you let me know when it's two hundred", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"two hundred\", \"place\": null}"}
+{"id": "C1654", "text": "set a continuous alarm without the option to snooze for seven am please", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": \"tomorrow\", \"time\": \"seven am\", \"place\": null}\n"}
+{"id": "C1669", "text": "how warm is it right now outside", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1684", "text": "what events are going on in the area", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1699", "text": "what's happening tonight in chicago", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"chicago\"}"}
+{"id": "C1714", "text": "please search for local events", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1729", "text": "let me know when it is ten", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": \"ten\", \"place\": null}"}
+{"id": "C1744", "text": "show me the weather forecast for the next three three days", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"next three three days\", \"time\": null, \"place\": null}\n"}
+{"id": "C1759", "text": "please feed that i have meeting at five pm", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"five pm\", \"place\": null}\n"}
+{"id": "C1774", "text": "is the weather cold", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1789", "text": "turn on my alarm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1804", "text": "what's next in my calendar", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1819", "text": "alert me at three pm to go to the concert", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"three pm\", \"place\": null}\n"}
+{"id": "C1834", "text": "do i have any appointments on march thirtieth", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"march thirtieth\", \"time\": null, \"place\": null}"}
+{"id": "C1849", "text": "is today a sunny day", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1864", "text": "tell me about my events", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1879", "text": "do i need a coat", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1894", "text": "what day does my birthday fall on this year", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1909", "text": "what's the time now", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C1924", "text": "is the twenty third of april a saturday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"twenty third of april\", \"time\": null, \"place\": null}"}
+{"id": "C1939", "text": "what time is my dentist appointment on monday", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"monday\", \"time\": null, \"place\": null}\n"}
+{"id": "C1954", "text": "tell me what reminders i have for today", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C1969", "text": "when is the yearly cultural event coming up", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C1984", "text": "what events are scheduled for this weekend in my area", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"this weekend\", \"time\": null, \"place\": null}"}
+{"id": "C1999", "text": "what's the date", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2014", "text": "please set an alarm for ten pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"ten pm\", \"place\": null}\n"}
+{"id": "C2029", "text": "open calendar and make an event reminder", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2044", "text": "tell me the meetings i have for the week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2059", "text": "is the on the calendar for july two", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"july two\", \"time\": null, \"place\": null}\n"}
+{"id": "C2074", "text": "what are the events coming up soon", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2089", "text": "what is today's temperature", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2104", "text": "is on eighth november there is monday or some other day", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"eighth november\", \"time\": null, \"place\": null}\n"}
+{"id": "C2119", "text": "is it going to rain in the next few days in tucson", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"tucson\"}"}
+{"id": "C2134", "text": "make an alarm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2149", "text": "alarm time for twelve pm", "teacher_raw": "{\"intent\": \"alarm_set\", \"date\": null, \"time\": \"twelve pm\", \"place\": null}"}
+{"id": "C2164", "text": "remind me the reminders i have set", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2179", "text": "tomorrow my mother birthday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C2194", "text": "when is my next reminder", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2209", "text": "is it sunny what s the temperature", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2224", "text": "what is home town weather", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2239", "text": "will it be cold enough for mittens later tonight", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2254", "text": "when is it going to snow next", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2269", "text": "please remove dinner date scheduled for this friday at nine pm", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"this friday\", \"time\": \"nine pm\", \"place\": null}\n"}
+{"id": "C2284", "text": "remind me of my dentist appointment in two hours", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"two hours\", \"place\": null}"}
+{"id": "C2299", "text": "how is my schedule for the day", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2314", "text": "remove the doctor's appointment i added to my calendar for february twelfth at nine am", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": \"february twelfth\", \"time\": \"nine am\", \"place\": null}\n"}
+{"id": "C2329", "text": "remember that i need to turn in my math assignment tonight by eleven", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tonight\", \"time\": \"eleven o'clock\", \"place\": null}"}
+{"id": "C2344", "text": "let's just skip appointment at time", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": \"at time\", \"place\": null}\n"}
+{"id": "C2359", "text": "what alarms are set in the house", "teacher_raw": "{\"intent\": \"alarm_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2374", "text": "there's a good band playing tonight at nine at jazz bar i want to go", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": \"nine\", \"place\": \"jazz bar\"}\n"}
+{"id": "C2389", "text": "weather in dhaka", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"dhaka\"}"}
+{"id": "C2404", "text": "how warm is it now", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2419", "text": "what is the extended forecast", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2434", "text": "do i have any remainder next sunday", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"next sunday\", \"time\": null, \"place\": null}"}
+{"id": "C2449", "text": "what is the time for jimmy's party", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": \"jimmy's party\"}\n"}
+{"id": "C2464", "text": "set a reminder for my meeting at five pm", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"five pm\", \"place\": null}\n"}
+{"id": "C2479", "text": "remove chat with allan", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2494", "text": "how many days is it until may twenty fifth", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"may twenty fifth\", \"time\": null, \"place\": null}"}
+{"id": "C2509", "text": "what time is my project meeting at", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"my project meeting\", \"place\": null}\n"}
+{"id": "C2524", "text": "are there any events coming up", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2539", "text": "is the sun gonna shine in devon this weekend", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"devon\"}"}
+{"id": "C2554", "text": "olly can you remind me to take the garbage out on tuesday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tuesday\", \"time\": null, \"place\": null}\n"}
+{"id": "C2569", "text": "does eighteen may contains any birthday", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"eighteenth may\", \"time\": null, \"place\": null}\n"}
+{"id": "C2584", "text": "please show me today's date", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}\n"}
+{"id": "C2599", "text": "what events are going on next week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"next week\", \"time\": null, \"place\": null}\n"}
+{"id": "C2614", "text": "conduct meeting on thursday", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"thursday\", \"time\": null, \"place\": null}\n"}
+{"id": "C2629", "text": "it is hot today is not it", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2644", "text": "i want to meet with sara tomorrow", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}\n"}
+{"id": "C2659", "text": "notify me in fifteen before meeting starts", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"in fifteen minutes\", \"place\": null}\n"}
+{"id": "C2674", "text": "is it going to be nice out this week", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2689", "text": "what is the weather like in new york", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"new york\"}\n"}
+{"id": "C2704", "text": "call linda and remind her to pick me up for bowling", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2719", "text": "can you inform me about what i have going on this week", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2734", "text": "how many minutes pass four pm", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": \"four pm\", \"place\": null}"}
+{"id": "C2749", "text": "what is the date for the event scheduled on the twentieth of february", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"twentieth of february\", \"time\": null, \"place\": null}\n"}
+{"id": "C2764", "text": "remove all the events from the calendar in this month", "teacher_raw": "{\"intent\": \"calendar_remove\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2779", "text": "what to i have on the schedule tomorrow morning", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C2794", "text": "how hot is it in miami", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"miami\"}"}
+{"id": "C2809", "text": "what will be the weather day after", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"day after tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C2824", "text": "state the weather in our city", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": \"our city\"}"}
+{"id": "C2839", "text": "is it noon in paris", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"paris\"}"}
+{"id": "C2854", "text": "what is tomorrows weather predictions", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}"}
+{"id": "C2869", "text": "let me know about upcoming events", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}\n"}
+{"id": "C2884", "text": "what is today date", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": \"today\", \"time\": null, \"place\": null}"}
+{"id": "C2899", "text": "please provide current time in india", "teacher_raw": "{\"intent\": \"datetime_query\", \"date\": null, \"time\": null, \"place\": \"india\"}"}
+{"id": "C2914", "text": "monthly weather report", "teacher_raw": "{\"intent\": \"calendar_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2929", "text": "set a meeting for tomorrow", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"tomorrow\", \"time\": null, \"place\": null}\n"}
+{"id": "C2944", "text": "what are all the upcoming events", "teacher_raw": "{\"intent\": \"recommendation_events\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2959", "text": "what time does the dinner party start tonight", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2974", "text": "what is the weather today", "teacher_raw": "{\"intent\": \"weather_query\", \"date\": null, \"time\": null, \"place\": null}"}
+{"id": "C2989", "text": "add all rrcg events in march to my calendar", "teacher_raw": "{\"intent\": \"calendar_set\", \"date\": \"march\", \"time\": null, \"place\": null}\n"}

@@ -1,0 +1,39 @@
+# Sharded labelling workers in namespace pipeline. An Indexed Job gives every Pod a different completion index,
+# which becomes SHARD_INDEX. Render with scripts/label_cluster.sh (it fills SHARD_COUNT, LIMIT and OUT_PREFIX).
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: teacher-workers
+  namespace: pipeline
+spec:
+  completionMode: Indexed
+  completions: ${SHARD_COUNT}
+  parallelism: ${SHARD_COUNT}
+  backoffLimit: 2
+  template:
+    metadata:
+      labels: {app: teacher-worker}
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: worker
+          image: cca-worker:1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SHARD_INDEX
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.annotations['batch.kubernetes.io/job-completion-index']
+            - {name: SHARD_COUNT, value: "${SHARD_COUNT}"}
+            - {name: LIMIT, value: "${LIMIT}"}
+            - {name: OUT_PREFIX, value: "${OUT_PREFIX}"}
+            - {name: S3_BUCKET, value: datasets}
+            - {name: S3_ENDPOINT, value: "http://seaweedfs.data.svc.cluster.local:8333"}
+            - {name: OLLAMA_HOST, value: "http://ollama.pipeline.svc.cluster.local:11434"}
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_ACCESS_KEY_ID}}
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom: {secretKeyRef: {name: s3-credentials, key: AWS_SECRET_ACCESS_KEY}}
+          resources:
+            requests: {cpu: 50m, memory: 64Mi}
+            limits: {cpu: 500m, memory: 256Mi}

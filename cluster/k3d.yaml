@@ -1,0 +1,25 @@
+# Local Kubernetes cluster: k3d create cluster -c cluster/k3d.yaml   (or: make up)
+# One server node; k3s ships Traefik (ingress), metrics-server (HPA) and a local-path storage class.
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: cca
+servers: 1
+agents: 0
+image: rancher/k3s:v1.30.4-k3s1
+ports:
+  - port: 8080:80      # Traefik ingress: http://localhost:8080/parse (the Locust host)
+    nodeFilters:
+      - loadbalancer
+  - port: 8333:8333    # SeaweedFS S3 API, used by the host scripts (model upload, bucket setup)
+    nodeFilters:
+      - loadbalancer
+options:
+  k3s:
+    extraArgs:
+      - arg: --kubelet-arg=eviction-hard=imagefs.available<1%,nodefs.available<1%
+        nodeFilters:
+          - server:*
+  k3d:
+    wait: true
+    timeout: "180s"

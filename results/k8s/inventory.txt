@@ -1,0 +1,48 @@
+## kubectl get all,ingress,hpa -n app
+NAME                          READY   STATUS    RESTARTS   AGE     IP           NODE               NOMINATED NODE   READINESS GATES
+pod/parser-64dc847c75-p2ht8   1/1     Running   0          2m54s   10.42.0.43   k3d-cca-server-0   <none>           <none>
+
+NAME             TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE     SELECTOR
+service/parser   ClusterIP   10.43.19.224   <none>        80/TCP    2m54s   app=parser
+
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE     CONTAINERS   IMAGES                 SELECTOR
+deployment.apps/parser   1/1     1            1           2m54s   parser       command-parser:1.0.0   app=parser
+
+NAME                                DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES                 SELECTOR
+replicaset.apps/parser-64dc847c75   1         1         1       2m54s   parser       command-parser:1.0.0   app=parser,pod-template-hash=64dc847c75
+
+NAME                                         REFERENCE           TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/parser   Deployment/parser   cpu: 1%/70%   1         2         1          2m54s
+
+NAME                               CLASS     HOSTS   ADDRESS      PORTS   AGE
+ingress.networking.k8s.io/parser   traefik   *       172.18.0.3   80      2m54s
+
+## resources, probes
+{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+{"failureThreshold":6,"httpGet":{"path":"/healthz","port":"http","scheme":"HTTP"},"initialDelaySeconds":15,"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1}
+{"failureThreshold":3,"httpGet":{"path":"/readyz","port":"http","scheme":"HTTP"},"initialDelaySeconds":2,"periodSeconds":3,"successThreshold":1,"timeoutSeconds":1}
+
+## nodes (single-node cluster limitation)
+NAME               STATUS   ROLES                  AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE           KERNEL-VERSION                      CONTAINER-RUNTIME
+k3d-cca-server-0   Ready    control-plane,master   8h    v1.30.4+k3s1   172.18.0.3    <none>        K3s v1.30.4+k3s1   6.18.33.1-microsoft-standard-WSL2   containerd://1.7.20-k3s1
+
+## namespaces
+NAME              STATUS   AGE
+app               Active   5h35m
+data              Active   5h35m
+default           Active   8h
+kube-node-lease   Active   8h
+kube-public       Active   8h
+kube-system       Active   8h
+pipeline          Active   5h35m
+
+## /parse through the ingress
+HTTP/1.1 200 OK
+Content-Length: 67
+Content-Type: application/json
+Date: Sun, 08 Nov 2026 20:36:25 GMT
+Server: uvicorn
+X-Model-Version: v1
+X-Served-By: parser-64dc847c75-p2ht8
+
+{"intent":"weather_query","date":null,"time":null,"place":"london"}

@@ -1,0 +1,142 @@
+name: label-teacher
+# Task 1: sharded teacher labelling on free runners. Start it from the Actions tab (Run workflow).
+# SHARD_COUNT = 15 shards of 200 commands. Each shard is one job on a 2-core runner (phi3.5 via Ollama, CPU),
+# each job writes its own object shard-N.jsonl (uploaded as an artifact). A final job merges and cleans.
+on:
+  workflow_dispatch:
+    inputs:
+      cluster_demo:
+        description: "Also run the in-cluster demo (k3d + SeaweedFS + 2 workers in namespace pipeline, 40 commands)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+env:
+  SHARD_COUNT: "15"
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Install Ollama and pull phi3.5
+        run: scripts/install_ollama.sh
+      - name: Label this shard (temperature 0, seed 42)
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+          OUT_ROOT: out
+          OUT_PREFIX: teacher
+        run: python worker/worker.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: teacher-shard-${{ matrix.shard }}
+          path: |
+            out/teacher/shard-${{ matrix.shard }}.jsonl
+            out/ollama_info.txt
+          if-no-files-found: error
+
+  teacher-validation:
+    # Task 2 step 6: the teacher scored on validation.jsonl, same prompt and settings as the labelling.
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: scripts/install_ollama.sh
+      - name: Teacher predictions and score
+        run: |
+          mkdir -p results
+          python eval/teacher_predict.py --out results/teacher_validation_predictions.jsonl
+          python tools/score.py results/teacher_validation_predictions.jsonl data/validation.jsonl --out results/teacher_validation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: teacher-validation
+          path: results/teacher_validation*
+      - name: Commit results
+        run: |
+          scripts/commit_results.sh "results: teacher validation scores" results/teacher_validation_predictions.jsonl results/teacher_validation.json
+
+  clean:
+    needs: label
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: teacher-shard-*
+          path: shards
+          merge-multiple: true
+      - name: Collect shard objects
+        run: |
+          mkdir -p datasets/teacher
+          cp shards/teacher/shard-*.jsonl datasets/teacher/ 2>/dev/null || cp shards/shard-*.jsonl datasets/teacher/
+          ls -l datasets/teacher
+          cat shards/ollama_info.txt 2>/dev/null | head -5 || true
+      - name: Clean (rules a-e), write datasets/v1/train.jsonl and train.sha256
+        run: |
+          python worker/clean.py --shards datasets/teacher --out datasets/v1 --counts-out results/data_counts.json
+          cat datasets/v1/train.sha256
+      - name: Check the checksum is reproducible
+        run: |
+          python worker/clean.py --shards datasets/teacher --out /tmp/again
+          diff datasets/v1/train.sha256 /tmp/again/train.sha256 && echo "checksum reproduced"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dataset-v1
+          path: |
+            datasets/v1/
+            datasets/teacher/
+            results/data_counts.json
+      - name: Commit shards, dataset and counts
+        run: |
+          scripts/commit_results.sh "data: teacher shards, cleaned train.jsonl v1" datasets/teacher datasets/v1 results/data_counts.json
+
+  cluster-demo:
+    # Task 1 steps 1, 2, 4, 5 in a real cluster: k3d from cluster/k3d.yaml, SeaweedFS in data,
+    # two workers with different SHARD_INDEX in namespace pipeline, each writing its own object.
+    if: ${{ inputs.cluster_demo }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Free disk space (the k3d node evicts Pods when the runner disk is nearly full)
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL
+          docker system prune -af >/dev/null
+          df -h /
+      - name: Install k3d
+        run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=v5.7.4 bash
+      - name: Cluster, storage and images (make up without the app)
+        run: make cluster-storage
+      - name: Run two workers in namespace pipeline
+        run: scripts/label_cluster.sh
+      - name: Evidence
+        if: always()
+        run: |
+          mkdir -p results/pipeline
+          kubectl get ns | tee results/pipeline/namespaces.txt
+          kubectl -n data get pods | tee results/pipeline/seaweedfs.txt
+          kubectl -n pipeline get job teacher-workers -o wide | tee -a results/pipeline/pods.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cluster-demo
+          path: results/pipeline/
+      - name: Commit results
+        if: always()
+        run: |
+          scripts/commit_results.sh "results: pipeline demo evidence" results/pipeline

@@ -1,0 +1,50 @@
+request 1 code=200 text=[remove the upcoming calendar event] body={"intent":"calendar_remove","date":null,"time":null,"place":null}
+request 2 code=200 text=[need an alarm set for sunday at five in the morning] body={"intent":"alarm_set","date":"sunday","time":"five in the morning","place":null}
+request 3 code=200 text=[give me the time at washington right now] body={"intent":"datetime_query","date":null,"time":null,"place":"washington"}
+request 4 code=200 text=[what time does mondays meeting start] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 5 code=200 text=[set my alarm for tuesday at six pm] body={"intent":"alarm_set","date":"tuesday","time":"six pm","place":null}
+request 6 code=200 text=[remind me about my meeting this afternoon please] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 7 code=200 text=[what day of the week is november fourteenth] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 8 code=200 text=[do i have any appointments this weekend] body={"intent":"calendar_query","date":null,"time":null,"place":null}
+request 9 code=200 text=[what time is it in the central time zone] body={"intent":"datetime_query","date":null,"time":null,"place":"central time zone"}
+request 10 code=200 text=[when is dale's birthday] body={"intent":"calendar_set","date":null,"time":null,"place":"dale's birthday"}
+request 11 code=200 text=[how's the weather going to be this week] body={"intent":"weather_query","date":null,"time":null,"place":null}
+request 12 code=200 text=[give me the time in pst] body={"intent":"datetime_query","date":null,"time":null,"place":"pst"}
+request 13 code=200 text=[any activity in the area] body={"intent":"recommendation_events","date":null,"time":null,"place":null}
+request 14 code=200 text=[read my next reminders for this afternoon] body={"intent":"calendar_query","date":"this afternoon","time":null,"place":null}
+request 15 code=200 text=[delete my whole calendar for today] body={"intent":"calendar_remove","date":"today","time":null,"place":null}
+request 16 code=200 text=[format data from calendar] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 17 code=200 text=[wake me up at this time] body={"intent":"alarm_set","date":null,"time":"this time","place":null}
+request 18 code=200 text=[remind me of my sister's birthday party tomorrow an hour before it starts] body={"intent":"calendar_set","date":"tomorrow","time":"before this time","place":null}
+request 19 code=200 text=[what time is the next event scheduled] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 20 code=200 text=[alexa state the weather in our city] body={"intent":"weather_query","date":null,"time":null,"place":"our city"}
+request 21 code=200 text=[what's going on around me] body={"intent":"recommendation_events","date":null,"time":null,"place":null}
+request 22 code=200 text=[remind me for making call to all participants] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 23 code=200 text=[set bob's birthday for every june third] body={"intent":"calendar_set","date":"every june third","time":null,"place":null}
+request 24 code=200 text=[what date is justin's school play] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 25 code=200 text=[what time is it now in new york] body={"intent":"datetime_query","date":null,"time":null,"place":"new york"}
+request 26 code=200 text=[what is the five days forecast looking like in new york city] body={"intent":"weather_query","date":null,"time":null,"place":"new york city"}
+request 27 code=200 text=[what meetings are on my calendar today] body={"intent":"calendar_query","date":"today","time":null,"place":null}
+request 28 code=200 text=[what is the weather at home] body={"intent":"weather_query","date":null,"time":null,"place":"home"}
+request 29 code=200 text=[what alarms are on right now] body={"intent":"alarm_query","date":null,"time":null,"place":null}
+request 30 code=200 text=[set alarm at ten am] body={"intent":"alarm_set","date":null,"time":"ten am","place":null}
+request 31 code=200 text=[fun things to do today] body={"intent":"calendar_query","date":"today","time":null,"place":null}
+request 32 code=200 text=[how many days are left in this year] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 33 code=200 text=[set an eight hundred am alarm for next tuesday] body={"intent":"alarm_set","date":"next tuesday","time":"eight hundred am","place":null}
+request 34 code=200 text=[do i have any new tinder matches] body={"intent":"recommendation_events","date":null,"time":null,"place":null}
+request 35 code=200 text=[remind me about my alarms today] body={"intent":"alarm_set","date":"today","time":null,"place":null}
+request 36 code=200 text=[is my alarm set for seven am] body={"intent":"alarm_set","date":null,"time":"seven am","place":null}
+request 37 code=200 text=[remind me about the office meeting tomorrow at seven] body={"intent":"calendar_set","date":"tomorrow","time":"seven","place":null}
+request 38 code=200 text=[can you set the event for monday at six at mcdonalds] body={"intent":"calendar_set","date":"monday","time":"six at six","place":null}
+request 39 code=200 text=[i am no longer going to wyatts birthday party] body={"intent":"calendar_set","date":null,"time":null,"place":null}
+request 40 code=200 text=[set an alarm in an hour's time] body={"intent":"alarm_set","date":null,"time":"the hour of time","place":null}
+request 41 code=200 text=[olly what time is it in california] body={"intent":"datetime_query","date":null,"time":null,"place":"california"}
+request 42 code=200 text=[what time is it in beijing] body={"intent":"datetime_query","date":null,"time":null,"place":"beijing"}
+request 43 code=200 text=[list my different alarm] body={"intent":"alarm_query","date":null,"time":null,"place":null}
+request 44 code=200 text=[what day is the fifteenth] body={"intent":"calendar_query","date":"the fifteenth","time":null,"place":null}
+request 45 code=200 text=[set an alarm for next tuesdays meeting] body={"intent":"alarm_set","date":"next tuesday","time":null,"place":null}
+request 46 code=200 text=[who will be attending the meeting this friday] body={"intent":"calendar_set","date":"this friday","time":null,"place":null}
+request 47 code=200 text=[what are the show timings] body={"intent":"calendar_query","date":null,"time":null,"place":null}
+request 48 code=200 text=[remove my event at one pm in my calendar] body={"intent":"calendar_remove","date":null,"time":null,"place":null}
+request 49 code=200 text=[what is the address for the event scheduled on the first of january alexa] body={"intent":"calendar_set","date":"the first of january","time":null,"place":null}
+request 50 code=200 text=[add on my calendar for today joe smith at one pm] body={"intent":"calendar_set","date":"today","time":"one pm","place":null}

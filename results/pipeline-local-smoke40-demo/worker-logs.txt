@@ -1,0 +1,4 @@
+[pod/teacher-workers-0-mfzrc/worker] shard 0/2: 20 commands, 0 already done, output teacher-demo/shard-0.jsonl
+[pod/teacher-workers-0-mfzrc/worker] shard 0: wrote 20 records to teacher-demo/shard-0.jsonl in 1456s
+[pod/teacher-workers-1-cs68x/worker] shard 1/2: 20 commands, 0 already done, output teacher-demo/shard-1.jsonl
+[pod/teacher-workers-1-cs68x/worker] shard 1: wrote 20 records to teacher-demo/shard-1.jsonl in 1428s

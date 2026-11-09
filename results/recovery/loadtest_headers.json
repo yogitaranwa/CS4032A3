@@ -1,0 +1,10 @@
+{
+  "per_replica": {
+    "parser-64dc847c75-66vfs": 23,
+    "parser-64dc847c75-kmxq6": 93,
+    "parser-64dc847c75-skqb5": 66
+  },
+  "per_model_version": {
+    "v1": 182
+  }
+}

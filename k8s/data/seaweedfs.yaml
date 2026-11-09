@@ -1,0 +1,81 @@
+# SeaweedFS (S3-compatible object storage) in namespace data.
+# The S3 identity file lives in the Secret seaweedfs-s3-config, created at deploy time by scripts/secrets.sh
+# with randomly generated credentials. Nothing secret is stored in this repository.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: seaweedfs-data
+  namespace: data
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seaweedfs
+  namespace: data
+  labels: {app: seaweedfs}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels: {app: seaweedfs}
+  template:
+    metadata:
+      labels: {app: seaweedfs}
+    spec:
+      containers:
+        - name: seaweedfs
+          image: chrislusf/seaweedfs:3.80
+          args:
+            - server
+            - -dir=/data
+            - -volume.max=20
+            - -master.volumeSizeLimitMB=512
+            - -filer
+            - -s3
+            - -s3.port=8333
+            - -s3.config=/etc/seaweedfs/s3.json
+          ports:
+            - {name: s3, containerPort: 8333}
+          readinessProbe:
+            tcpSocket: {port: 8333}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            requests: {cpu: 100m, memory: 256Mi}
+            limits: {cpu: "1", memory: 1Gi}
+          volumeMounts:
+            - {name: data, mountPath: /data}
+            - {name: s3-config, mountPath: /etc/seaweedfs, readOnly: true}
+      volumes:
+        - name: data
+          persistentVolumeClaim: {claimName: seaweedfs-data}
+        - name: s3-config
+          secret: {secretName: seaweedfs-s3-config}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: seaweedfs
+  namespace: data
+spec:
+  selector: {app: seaweedfs}
+  ports:
+    - {name: s3, port: 8333, targetPort: 8333}
+---
+# Exposes the S3 port on the k3d load balancer (localhost:8333) for the host-side scripts.
+apiVersion: v1
+kind: Service
+metadata:
+  name: seaweedfs-external
+  namespace: data
+spec:
+  type: LoadBalancer
+  selector: {app: seaweedfs}
+  ports:
+    - {name: s3, port: 8333, targetPort: 8333}

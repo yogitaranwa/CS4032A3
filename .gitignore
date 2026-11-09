@@ -1,0 +1,21 @@
+# secrets and generated credentials
+.secrets/
+*.env
+.env*
+# model weights and archives (published as Release assets, stored in object storage)
+out/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.tar.gz
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+# locust / local scratch
+results/**/*.tmp
+report/*.aux
+report/*.log

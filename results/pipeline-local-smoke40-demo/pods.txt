@@ -1,0 +1,4 @@
+NAME                      READY   STATUS      RESTARTS   AGE     IP           NODE               NOMINATED NODE   READINESS GATES
+ollama-848dd9d64d-zlj7r   1/1     Running     0          4h19m   10.42.0.40   k3d-cca-server-0   <none>           <none>
+teacher-workers-0-mfzrc   0/1     Completed   0          130m    10.42.0.42   k3d-cca-server-0   <none>           <none>
+teacher-workers-1-cs68x   0/1     Completed   0          130m    10.42.0.41   k3d-cca-server-0   <none>           <none>
