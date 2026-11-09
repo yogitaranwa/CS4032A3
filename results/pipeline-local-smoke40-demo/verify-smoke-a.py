@@ -1,13 +1,16 @@
-import json, pathlib, sys
+import json
+import pathlib
+import sys
+
 root = pathlib.Path.cwd()
-pool = [json.loads(l) for l in open(root / "data/commands_pool.jsonl") if l.strip()][:40]
+pool = [json.loads(line) for line in open(root / "data/commands_pool.jsonl") if line.strip()][:40]
 d = pathlib.Path(sys.argv[1])
 fs = sorted(d.glob("shard-*.jsonl"))
 print("files:", [f.name for f in fs])
 shards = {}
 for f in fs:
     idx = int(f.stem.split("-")[1])
-    shards[idx] = [json.loads(l) for l in f.open() if l.strip()]
+    shards[idx] = [json.loads(line) for line in f.open() if line.strip()]
 print("counts:", {k: len(v) for k, v in shards.items()})
 exp = {i: pool[i::2] for i in (0, 1)}
 ids_ok = {k: [r["id"] for r in shards.get(k, [])] == [r["id"] for r in exp[k]] for k in (0, 1)}
